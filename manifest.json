@@ -1,0 +1,39 @@
+{
+	"name": "A peerFeed",
+	"short_name": "peerFeed",
+	"description": "The web in an app.",
+	"version": "1.0.0",
+	"author": "PeerBay",
+	"minimum_chrome_version": "36",
+	"manifest_version": 2,
+	"offline_enabled": true,
+	"icons": {
+		"16":  "img/icon16.png",
+		"32":  "img/icon32.png",
+		"48":  "img/icon48.png",
+		"128": "img/icon128.png",
+		"256": "img/icon256.png",
+		"512": "img/icon512.png"
+	},
+	"app": {
+		"background": {
+			"scripts": ["background.js"]
+		}
+	},
+	"permissions": [
+		"notifications",
+		"storage",
+		"fileBrowserHandler",
+		"fileSystem",
+		"cookies",
+		"*://*/"
+	],
+	"file_handlers": {
+		"any": {
+			"extensions": [
+				"minilock"
+			],
+			"title": "miniLock"
+		}
+	}
+}

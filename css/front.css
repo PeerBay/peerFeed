@@ -1,0 +1,188 @@
+/*
+	* Square (front)
+*/
+
+div.squareFront {
+	z-index: 2;
+	background: #49698D;
+	color: #FFF;
+	border-radius: 2px;
+}
+
+/*
+	* Unlock screen
+*/
+
+div.unlock {
+	margin: 0 auto;
+/*
+	width: 500px;
+*/
+	margin-top: 90px;
+}
+
+div.unlock h1 {
+	font-size: 1.5em;
+}
+
+div.unlock p {
+	font-size: 0.9em;
+	margin: 20px 0;
+}
+
+div.unlock input.miniLockEmail,
+div.unlock input.miniLockKey {
+	font-size: 0.8em;
+	width: 416px;
+	height: 23px;
+	position: relative;
+	bottom: 4px;
+}
+
+div.unlock input.showMiniLockKey {
+	font-family: 'Octicons';
+	position: relative;
+	right: 28px;
+	border-radius: 5px 0 0 0;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+div.unlock input[type=submit] {
+	font-size: 1.3em;
+	font-family: 'Octicons';
+	width: 30px;
+	position: relative;
+	bottom: 2px;
+	right: 28px;
+}
+
+div.unlock div.unlockInfo {
+	background: rgba(0, 0, 0, 0.15);
+	font-size: 0.8em;
+	font-weight: bold;
+/*
+	width: 452px;
+*/
+	padding: 3px 5px;
+	line-height: 1.6em;
+	overflow: hidden;
+	height: 20px;
+	border-radius: 1px 1px 2px 2px;
+}
+
+div.unlock div.unlockInfo span.keyStrengthMoreInfo {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+div.unlock div.unlockInfo p {
+	border-radius: 6px;
+	padding: 3px;
+	margin-top: 7px;
+}
+
+div.unlock div.unlockInfo input[type=text] {
+/*
+	width: 430px;
+*/
+	font-size: 1em;
+}
+
+div.unlock div.unlockInfo input[type=button] {
+	font-size: 1.1em;
+	margin-top: 7px;
+}
+
+/*
+	* File select
+*/
+
+div.postForm {
+	display: none;
+}
+
+div.fileSelector {
+	border: 5px dashed #FFF;
+	width: 350px;
+	height: 350px;
+	margin: 70px auto 0 auto;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.05);
+	color: #FFF;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+div.fileSelector:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+div.fileSelector:active {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+div.fileSelector span.dragFileIcon {
+	font-family: 'Octicons';
+	margin-top: 150px;
+	font-size: 11em;
+	display: inline-block;
+}
+
+div.fileSelector span.dragFileInfo {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+	padding: 1px 6px;
+	text-align: center;
+	margin: 40px auto 0 auto;
+	width: 265px;
+	font-size: 0.8em;
+	font-weight: bold;
+	display: block;
+}
+
+div.fileSelector span.dragFileInfo span {
+	display: block;
+	font-size: 0.8em;
+	color: rgba(255, 255, 255, 0.6);
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	margin-bottom: 3px;
+}
+
+input.fileSelectDialog {
+	display: none;
+}
+
+div.myMiniLockID {
+	margin: 40px auto 0 auto;
+	text-align: center;
+}
+
+div.myMiniLockID * {
+	display: inline-block;
+	vertical-align: top;
+	height: 25px;
+	margin: 0 -1px;
+	padding: 5px 10px;
+	border: 0;
+}
+
+div.myMiniLockID span {
+	border-radius: 5px 0 0 5px;
+	font-size: 0.8em;
+	background: rgba(255, 255, 255, 0.3);
+	cursor: default;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+div.myMiniLockID code {
+	border-radius: 0 5px 5px 0;
+	background: rgba(255, 255, 255, 0.1);
+	-webkit-user-select: text;
+	margin-left: -4px;
+}

@@ -1,0 +1,764 @@
+/* B-side of miniLock */
+
+div.squareBack {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+	background: #7090ad;
+	color: #FFF;
+	border-radius: 2px;
+}
+
+/* Basic styles for all headings on the B-side of miniLock */
+
+div.squareBack h1,
+div.squareBack h2,
+div.squareBack h3 {
+	font-weight: normal;
+	font-size: inherit;
+	line-height: inherit;
+	margin: 0;
+}
+
+/* Basic styles for all <a> tags on the B-side of miniLock */
+
+div.squareBack a {
+	color: inherit;
+	font-weight: normal;
+}
+
+div.squareBack a.control {
+	color: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+div.squareBack a.control:hover {
+	color: white;
+}
+
+/* Basic 35x35 square control buttons with centered icon */
+
+div.squareBack input[type=button].button,
+div.squareBack input[type=submit].button {
+	font-family: 'Octicons';
+	font-size: 20px;
+	width: 35px;
+	height: 35px;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+div.squareBack input[type=button].button:hover,
+div.squareBack input[type=submit].button:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+div.squareBack input[type=button].button:active,
+div.squareBack input[type=button].button.activated,
+div.squareBack input[type=submit].button:active,
+div.squareBack input[type=submit].button.activated {
+	background: rgba(255, 255, 255, 1);
+	color: #7090AD;
+}
+
+div.squareBack input[type=button].button:disabled,
+div.squareBack input[type=submit].button:disabled {
+	background: rgba(255, 255, 255, 1);
+	color: #7090AD;
+}
+
+/* Go back-to-front button */
+
+div.squareBack input.flipBack.button {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+/* File processing form scrolling surface */
+
+form.process > div.scrollingsurface {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 100px;
+	color: rgba(255, 255, 255, 0.5);
+	overflow: hidden;
+	width: 100%;
+}
+
+form.process.unprocessed > div.scrollingsurface {
+	overflow: auto;
+}
+
+form.process > div.scrollingsurface > header {
+	position: relative;
+	height: 170px;
+}
+
+/* File icon */
+
+form.process div.fileIcon {
+	position: absolute;
+	left: 55px;
+	width: 45px;
+	bottom: 0px;
+	height: 50px;
+	line-height: 51px;
+	font-size: 57px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Status icon (processing pulse, download arrow or alert triangle) */
+
+form.process div.statusIcon {
+	position: absolute;
+	left: 55px;
+	bottom: 0px;
+	height: 45px;
+	width: 45px;
+}
+
+form.process div.statusIcon a.octicon {
+	display: block;
+	text-align: center;
+	position: relative;
+	visibility: hidden;
+}
+
+form.process div.statusIcon a.ready.octicon,
+form.process div.statusIcon a.processing.octicon {
+	position: absolute;
+	bottom: -10px;
+	left: 5px;
+	right: 5px;
+	height: 27px;
+	width: 27px;
+	overflow: hidden;
+	color: white;
+	border: 4px solid white;
+	border-radius: 25px;
+	background: #7090AD;
+}
+
+form.process.encrypting div.statusIcon a.processing,
+form.process.decrypting div.statusIcon a.processing {
+	font-size: 23px;
+	line-height: 30px;
+	visibility: visible;
+}
+
+form.process.encrypted div.statusIcon a.ready.octicon,
+form.process.decrypted div.statusIcon a.ready.octicon {
+	font-size: 24px;
+	line-height: 31px;
+	visibility: visible;
+}
+
+form.encrypt.process.failed div.statusIcon a.failed.octicon,
+form.decrypt.process.failed div.statusIcon a.failed.octicon {
+	color: white;
+	bottom: -25px;
+	font-size: 35px;
+	line-height: 35px;
+	visibility: visible;
+}
+
+/* Filename styles */
+
+form.process {
+	font-size: 12px;
+	line-height: 16px;
+	color: black;
+}
+
+
+
+form.process div.nameContainer {
+	position: absolute;
+	top: 0px;
+	right: 50px;
+	left: 110px;
+	bottom: 14px;
+	overflow: hidden;
+}
+
+form.process div.name {
+	position: absolute;
+	left: 0;
+	right: 0;
+	opacity: 1;
+	bottom: -55px;
+	margin-bottom: 4px;
+}
+
+form.process div.name.activated {
+	bottom: 0px;
+}
+
+form.process.unprocessed div.input.name,
+form.process.encrypting  div.input.name,
+form.process.encrypted   div.input.name {
+	visibility: hidden;
+}
+
+form.process.decrypting div.input.name {
+	visibility: visible;
+}
+
+form.process.decrypted div.input.name.expired {
+	opacity: 0;
+	bottom: 55px;
+	transition: bottom 200ms ease-out, opacity 200ms linear;
+}
+
+form.process.unprocessed div.output.name {
+	visibility: hidden;
+	transition: visibility 0ms linear 400ms;
+}
+
+form.process.unprocessed div.output.name.activated {
+	bottom: 0px;
+	visibility: visible;
+	transition: visibility 0ms linear 200ms;
+}
+
+form.process.decrypted div.output.name.activated {
+	bottom: 0px;
+	transition: bottom 200ms ease-out;
+}
+
+form.process div.original.name {
+	visibility: hidden;
+}
+
+form.process.unprocessed div.original.name {
+	visibility: hidden;
+	bottom: 0px;
+	transition: bottom 200ms ease-out, visibility 0ms linear 200ms;
+}
+
+form.process div.original.name.shelved {
+	visibility: visible;
+	bottom: 55px;
+}
+
+form.process.unprocessed div.original.name.shelved {
+	visibility: visible;
+	bottom: 55px;
+	transition: bottom 200ms ease-out;
+}
+
+form.process.unprocessed div.random.name {
+	transition: bottom 200ms ease-out;
+}
+
+form.process.unprocessed div.random.name.activated {
+	bottom: 0px;
+}
+
+
+form.process div.name h1 {
+	font-size: 24px;
+	line-height: 25px;
+}
+
+form.process div.name h1 b.basename {
+	font-weight: bold;
+}
+
+form.process div.name h1 * {
+	vertical-align: middle;
+}
+
+form.process div.name h1 span.spaceToAllowWordWrapOnExtensions {
+	font-size: 0px;
+}
+
+form.process div.name h1 b.basename,
+form.process div.name h1 span.extensions {
+	color: white;
+}
+
+form.process.failed div.activated.name h1 b.basename,
+form.process.failed div.activated.name h1 span.extensions {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+form.process div.name span.miniLockExtension {
+	color: inherit;
+}
+
+form.process div.output.name span.miniLockExtension { opacity: 0; transition: opacity 0ms linear; }
+form.process div.output.name.activated span.miniLockExtension { opacity: 1; transition: opacity 200ms linear 400ms; }
+
+form.process div.original.name h3 { opacity: 0; transition: opacity 150ms linear; }
+form.process div.original.name h1 { opacity: 1.0; transition: opacity 200ms linear; }
+form.process div.original.name span.miniLockExtension { opacity: 1; transition: opacity 400ms linear 400ms; }
+
+form.process div.original.name.shelved h3 { opacity: 1; transition: opacity 200ms linear 100ms; }
+form.process div.original.name.shelved h1 { opacity: 0.4; transition: opacity 200ms linear; }
+form.process div.original.name.shelved span.miniLockExtension { opacity: 0; transition: opacity 200ms linear; }
+
+form.process.decrypted div.activated.name span.miniLockExtension { opacity: 0; transition: opacity 150ms linear; }
+form.process.encrypted div.activated.name span.miniLockExtension { color: white; transition: color 150ms linear; }
+
+/* File size, status messages and controls to change the filename. */
+
+form.process div.infoContainer {
+	position: absolute;
+	bottom: -2px;
+	height: 16px;
+	left: 110px;
+	right: 110px;
+	overflow: hidden;
+}
+
+form.process div.infoContainer a.fileSize {
+	margin: 0px 2px 0px 0px;
+}
+
+form.process div.infoContainer > div {
+	position: absolute;
+	display: none;
+	bottom: 0px;
+	transition: bottom 200ms ease-out;
+}
+
+/* Toggle random name and original name */
+
+form.process.unprocessed div.setRandomName,
+form.process.unprocessed div.setOriginalName,
+form.process.encrypting  div.setRandomName,
+form.process.encrypting  div.setOriginalName {
+	display: block;
+	bottom: -15px;
+}
+
+form.process.unprocessed div.setRandomName,
+form.process.unprocessed.withRandomName div.setOriginalName {
+	bottom:  0px;
+}
+
+form.process.encrypting div.setRandomName,
+form.process.encrypting.withRandomName div.setOriginalName {
+	bottom: 15px;
+}
+
+form.process.unprocessed.withRandomName div.setRandomName {
+	bottom: 15px;
+}
+
+/* Encryption/Decryption in progress */
+
+form.process.unprocessed div.encrypting,
+form.process.encrypting  div.encrypting,
+form.process.encrypted   div.encrypting,
+form.process.decrypting  div.decrypting,
+form.process.decrypted   div.decrypting {
+	display: block;
+	bottom: -15px;
+}
+form.process.encrypting div.encrypting,
+form.process.decrypting div.decrypting {
+	bottom:   0px;
+}
+form.process.encrypted  div.encrypting,
+form.process.decrypted  div.decrypting {
+	bottom:  15px;
+}
+
+/* Encrypted/Decrypted file is ready */
+
+form.process.encrypting div.encryptedFileIsReady,
+form.process.encrypted  div.encryptedFileIsReady,
+form.process.decrypting div.decryptedFileIsReady,
+form.process.decrypted  div.decryptedFileIsReady {
+	display: block;
+	bottom: -15px;
+}
+form.process.encrypted  div.encryptedFileIsReady,
+form.process.decrypted  div.decryptedFileIsReady {
+	bottom:   0px;
+}
+form.process.encrypted.withHintToSave div.encryptedFileIsReady,
+form.process.decrypted.withHintToSave div.decryptedFileIsReady {
+	display: none;
+}
+
+/* Save your encrypted/decrypted file */
+
+form.process.encrypted.withHintToSave div.saveEncryptedFile,
+form.process.decrypted.withHintToSave div.saveDecryptedFile {
+	display: block;
+	color: white;
+}
+
+/* Encryption/Decryption failed */
+
+form.process.encrypt.failed div.encryptOperationFailed,
+form.process.decrypt.failed div.decryptOperationFailed {
+	display: block;
+}
+
+/* Link to save file (height is updated programatically in ui.js) */
+
+form.process a.fileSaveLink {
+	display: block;
+	position: absolute;
+	height: 22px;
+	padding-top: 10px;
+	padding-bottom: 25px;
+	bottom: -10px;
+	left: 50px;
+	right: 50px;
+	visibility: hidden;
+}
+
+form.process.encrypted a.fileSaveLink,
+form.process.decrypted a.fileSaveLink {
+	visibility: visible;
+}
+
+form.process a.fileSaveLink span.assistive {
+	opacity: 0;
+}
+
+/* ID of the person who encrypted the file on encrypted and decrypted screens */
+
+form.process div.senderID {
+	position: absolute;
+	top: 255px;
+	left: 100px;
+	right: 100px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	padding: 9px;
+	box-sizing:border-box;
+	height: 35px;
+	width: 380px;
+	display: none;
+}
+
+form.process.encrypting div.senderID,
+form.process.encrypted  div.senderID,
+form.process.decrypting div.senderID,
+form.process.decrypted  div.senderID {
+	display: block;
+}
+
+form.process div.senderID h3 {
+	position: absolute;
+	top: -20px;
+	left: 10px;
+	opacity: 0;
+}
+
+form.process.encrypted div.senderID h3,
+form.process.decrypted div.senderID h3 {
+	opacity: 1;
+	transition: opacity 200ms linear;
+}
+
+form.process div.senderID code {
+	display: block;
+	opacity: 0;
+	-webkit-user-select: text;
+}
+
+form.process.encrypted div.senderID code,
+form.process.decrypted div.senderID code {
+	opacity: 1;
+	transition: opacity 200ms linear;
+	-webkit-user-select: text;
+}
+
+/* Summary of the recipients for an encrypted file, or the input filename of a decrypted file  */
+
+form.process div.summary {
+	position: absolute;
+	top: 300px;
+	left: 100px;
+	right: 100px;
+	margin: 10px;
+	visibility: hidden;
+}
+
+form.process.encrypted div.summary,
+form.process.decrypted div.summary {
+	visibility: visible;
+}
+
+form.process div.summary span.spaceToAllowWordWrapOnExtensions {
+	font-size: 0px;
+}
+
+/* Notice when the filename of a decrypted file is suspect */
+
+form.process div.suspectFilenameNotice {
+	position: fixed;
+	top: 385px;
+	left: 100px;
+	right: 100px;
+	padding: 10px;
+	background: #FF8387;
+	color: rgba(255, 255, 255, 0.7);
+	width: 360px;
+	visibility: hidden;
+}
+
+form.process.decrypted.withSuspectFilename div.suspectFilenameNotice {
+	visibility: visible;
+}
+
+/* Notice when the operation failed */
+
+form.process div.failureNotice {
+	position: fixed;
+	top: 270px;
+	left: 110px;
+	right: 110px;
+	visibility: hidden;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+form.decrypt.process.failed div.failureNotice,
+form.encrypt.process.failed file div.failureNotice {
+	visibility: visible;
+}
+
+/* Progress bar for encryption and decryption operations */
+
+form.process div.progressBar {
+	position: absolute;
+	top: 260px;
+	left: 105px;
+	right: 105px;
+	height: 25px;
+	width: 368px;
+	box-sizing: border-box;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
+form.process.encrypting div.progressBar,
+form.process.decrypting div.progressBar {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 150ms linear 200ms, visibility 0 linear;
+}
+
+form.process.encrypted div.progressBar,
+form.process.decrypted div.progressBar {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 400ms linear 200ms, visibility 0 linear 750ms;
+}
+
+form.encrypt.process.failed div.progressBar,
+form.decrypt.process.failed div.progressBar {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 200ms linear, visibility 0 linear 200ms;
+}
+
+form.process div.progressBar div.progressBarFill {
+	width: 0;
+	height: 100%;
+	background: white;
+}
+
+/* List of recipients for an unprocessed file */
+
+form.process div.recipients {
+	position: relative;
+	top: 0;
+	margin-top: 60px;
+	margin-left: 100px;
+	margin-right: 100px;
+	opacity: 1;
+}
+
+form.process.encrypting     div.recipients,
+form.process.encrypted      div.recipients,
+form.process.decrypting     div.recipients,
+form.process.decrypted      div.recipients,
+form.encrypt.process.failed div.recipients,
+form.decrypt.process.failed div.recipients {
+	top: 60px;
+	opacity: 0;
+	transition: top 200ms ease-out, opacity 200ms linear;
+}
+
+form.process div.recipients > header {
+	position: absolute;
+	top: -32px;
+	left: 10px;
+	right: 10px;
+	margin-top: -2px;
+}
+
+form.process div.recipients > header h2 {
+	color: white;
+}
+
+/* Identity elements  */
+
+form.process div.identity {
+	position: relative;
+	box-sizing: border-box;
+	background: #597ea0;
+	width: 400px;
+	z-index: 0;
+	height: 35px;
+	opacity: 1;
+	visibility: visible;
+}
+form.process div.expired.identity {
+	z-index: -1;
+	opacity: 0.4;
+	height: 0px;
+	visibility: hidden;
+	transition: height 200ms ease-out 200ms, visibility 0ms linear 400ms;
+}
+
+form.process div.identity input[type=text] {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 34px;
+	line-height: 20px;
+	padding: 0px 10px;
+	font-weight: normal;
+	background: rgba(255, 255, 255, 0.1);
+	transition: background 100ms linear;
+}
+form.process div.identity input[type=text]:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+form.process div.identity input[type=text]:focus {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+form.process div.identity label {
+	position: absolute;
+	right: 400px;
+	top: 7px;
+	display: block;
+	box-sizing: border-box;
+	margin-right: -5px;
+	height: 19px;
+	line-height: 14px;
+	padding: 3px 10px 2px 5px;
+	text-align: right;
+	white-space: nowrap;
+	color: #7090AD;
+	background: #A3B6CC;
+	font-weight: bold;
+	-webkit-mask-image: url(../img/label.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: right;
+	-webkit-mask-size: auto 100%;
+}
+form.process div.identity label,
+form.process div.blank.identity label,
+form.process div.expired.session.identity label,
+form.process div.expired.invalid.identity label {
+	visibility: hidden;
+}
+form.process div.session.identity label,
+form.process div.invalid.identity label {
+	visibility: visible;
+}
+form.process div.invalid.identity label {
+	background: #FF8387;
+}
+form.process div.invalid.identity label:after {
+	border-left-color: #FF8387;
+}
+form.process div.invalid.identity input[type=text] {
+	color: #FF8387;
+}
+
+form.process div.identity input[type=button].remove {
+	position: absolute;
+	display: block;
+	top: 10px;
+	right: 8px;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	font-family: 'Octicons';
+	font-size: 18px;
+	color: rgba(255, 255, 255, 0.4);
+	padding: 0;
+	background: none;
+}
+form.process div.identity input[type=button].remove:hover,
+form.process div.expired.identity input[type=button].remove {
+	color: white;
+}
+form.process div.blank.identity input[type=button].remove {
+	display: none;
+}
+
+/* Notice when you are not in the list */
+
+form.process div.missingMyMiniLockIDNotice {
+	position: absolute;
+	box-sizing: border-box;
+	padding: 3px 0 2px;
+	height: 35px;
+	left: 190px;
+	right: 50px;
+	bottom: 60px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 600ms linear, visibility 0 linear 600ms;
+}
+
+form.process.withoutMyMiniLockID div.missingMyMiniLockIDNotice {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 600ms linear, visibility 0 linear;
+}
+
+form.process div.missingMyMiniLockIDNotice span.octicon {
+	position: absolute;
+	display: block;
+	font-size: 25px;
+	line-height: 25px;
+	text-align: left;
+	left: -32px;
+	top: 5px;
+	color: rgba(255, 255, 255, 0.45);
+}
+
+form.process div.missingMyMiniLockIDNotice span.text {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Encrypt file button */
+
+form.process input.encrypt.button {
+/*
+	position: fixed;
+	bottom: 60px;
+	left: 100px;
+	visibility: hidden;
+	opacity: 0;
+*/
+}
+
+form.process.unprocessed input.encrypt.button {
+	visibility: visible;
+	opacity: 1;
+}
+
+form.process.encrypting input.encrypt.button,
+form.process.encrypted  input.encrypt.button {
+	transition: opacity 200ms linear, visibility 0 linear 200ms;
+}
