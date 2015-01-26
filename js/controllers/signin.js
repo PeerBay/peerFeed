@@ -27,7 +27,13 @@ app.controller('SigninFormController', ['$scope',  '$state', function($scope, $s
 					    success: function(data) {
 					        console.log(data);
 							miniLock.login()
-							$state.go('app.page.profile');
+							var dbReadyInterval= setInterval(function(){
+								if(miniLock.session.secretDB){
+									clearInterval(dbReadyInterval);
+									$state.go('app.page.profile');
+									}
+								},200)
+							
 					    },
 					    error: function(data){
 							console.log(data)

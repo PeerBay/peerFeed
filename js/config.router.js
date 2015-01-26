@@ -229,6 +229,20 @@ angular.module('app')
                   url: '/wizard',
                   templateUrl: 'tpl/form_wizard.html'
               })
+              .state('app.form.profileWizard', {
+                  url: '/profilewizard',
+                  templateUrl: 'tpl/profile_wizard.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                        function( $ocLazyLoad){
+                          return $ocLazyLoad.load('angularFileUpload').then(
+                              function(){
+                                 return $ocLazyLoad.load('js/controllers/profile-wizard.js');
+                              }
+                          );
+                      }]
+                  }
+              })
               .state('app.form.fileupload', {
                   url: '/fileupload',
                   templateUrl: 'tpl/form_fileupload.html',
@@ -324,7 +338,13 @@ angular.module('app')
               })
               .state('app.page.profile', {
                   url: '/profile',
-                  templateUrl: 'tpl/page_profile.html'
+                  templateUrl: 'tpl/page_profile.html',
+				  resolve: {
+					  deps: ['uiLoad',
+						function( uiLoad ){
+						  return uiLoad.load( ['js/controllers/profile.js'] );
+					  }]
+				  }
               })
               .state('app.page.post', {
                   url: '/post',

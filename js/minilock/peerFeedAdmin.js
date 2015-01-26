@@ -276,6 +276,17 @@ miniLock.login=function(){
 									//~ mySecretKey:miniLock.session.keys.secretKey,
 									//~ message:{title:"hi",body:"my name is hello.. :P"}
 								//~ }
+								if (doc.id){
+									//can only be read by the owner
+									myMiniLockID=miniLock.crypto.getMiniLockID(miniLock.session.keys.publicKey)
+									doc= {
+										_id:doc.id,
+										miniLockIDs:[myMiniLockID],
+										myMiniLockID:myMiniLockID,
+										mySecretKey:nacl.util.encodeBase64(miniLock.session.keys.secretKey),
+										message:doc
+									}
+								}
 								var header = {}
 								header.decryptInfo={}
 								var miniLockIDs=doc.miniLockIDs
@@ -336,7 +347,7 @@ miniLock.login=function(){
 								}
 								
 								console.log(header)
-								header._id=PouchDB.utils.uuid()
+								header._id=doc._id || PouchDB.utils.uuid()
 							    return header;
 							  }
 							})

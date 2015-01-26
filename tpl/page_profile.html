@@ -1,33 +1,36 @@
 <div class="hbox hbox-auto-xs hbox-auto-sm" >
   <div class="col">
-    <div style="background:url(img/c4.jpg) center center; background-size:cover" ng-controller="ProfileController">
+    <div ng-style="{'background-image':'url('+user.backdrop+')center center; background-size:cover'}" ng-controller="ProfileController">
       <div class="wrapper-lg bg-white-opacity">
         <div class="row m-t">
           <div class="col-sm-7">
             <a href class="thumb-lg pull-left m-r">
-              <img src="img/a0.jpg" class="img-circle">
+              <img ng-src="{{user.image}}" class="img-circle">
             </a>
             <div class="clear m-b">
               <div class="m-b m-t-sm">
-                <span class="h3 text-black">{{user.name}}</span>
-                <small class="m-l">{{user.place}}</small>
+                <span class="h3 text-black" ng-show="user.name">{{user.givenName}}</span>
+                <span class="h3 text-black" ng-show="user.name">{{user.familyName}}</span>
+                <small class="m-l" ng-show="user.place">{{user.homeLocation}}</small>
               </div>
               <p class="m-b">
                 <a href class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-twitter"></i></a>
                 <a href class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-facebook"></i></a>
                 <a href class="btn btn-sm btn-bg btn-rounded btn-default btn-icon"><i class="fa fa-google-plus"></i></a>
               </p>
+<!--
               <a href class="btn btn-sm btn-success btn-rounded">Follow</a>
+-->
             </div>
           </div>
           <div class="col-sm-5">
             <div class="pull-right pull-none-xs text-center">
               <a href class="m-b-md inline m">
-                <span class="h3 block font-bold">{{user.followers.length}}</span>
+                <span class="h3 block font-bold" ng-show="user.followers">{{user.followers}}</span>
                 <small>Followers</small>
               </a>
               <a href class="m-b-md inline m">
-                <span class="h3 block font-bold">{{user.following.length}}</span>
+                <span class="h3 block font-bold" ng-show="user.following">{{user.following}}</span>
                 <small>Following</small>
               </a>
             </div>
@@ -35,7 +38,7 @@
         </div>
       </div>
     </div>
-	<div class="wrapper bg-white b-b" ng-controller="PostBoxController">
+	<div class="wrapper bg-white b-b" >
 		<ul class="nav nav-pills nav-sm">
 			<li class="active">
 				<a href>Stream</a>
@@ -49,7 +52,7 @@
 		</ul>
 		<section class="panel panel-default">
 			<form>
-				<textarea class="form-control no-border" rows="3" placeholder="What are you doing..." ng-model="posttext"></textarea>
+				<textarea class="form-control no-border" rows="3" placeholder="What are you doing..." ></textarea>
 			</form>
 			<footer class="panel-footer bg-light lter">
 				<button class="btn btn-info pull-right btn-sm">POST</button>
@@ -60,6 +63,7 @@
 					<li>
 						<a href="#"><i class="fa fa-video-camera text-muted"></i></a>
 					</li>
+					
 				</ul>
 			</footer>
 		</section>
